@@ -7,6 +7,7 @@ import chainlit as cl
 from typing import Optional
 
 # Configuration
+# Path to the Forge Agent codebase
 FORGE_AGENT_PATH = os.environ.get("FORGE_AGENT_PATH", "../forge-agent-main")
 ENABLE_AUTH = os.environ.get("ENABLE_AUTH", "true").lower() == "true"
 
