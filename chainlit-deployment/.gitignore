@@ -15,6 +15,9 @@ ENV/
 .files/
 *.db
 
+# User database
+users.db
+
 # IDE
 .vscode/
 .idea/
