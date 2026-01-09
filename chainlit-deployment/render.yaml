@@ -1,0 +1,21 @@
+# Render.com deployment configuration
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: chainlit-forge-agent
+    env: python
+    region: oregon  # Change to your preferred region
+    plan: free  # Options: free, starter ($7/mo), standard ($25/mo)
+    buildCommand: pip install -r requirements.txt
+    startCommand: chainlit run app.py --host 0.0.0.0 --port $PORT --headless
+    healthCheckPath: /health
+    envVars:
+      - key: CHAINLIT_AUTH_SECRET
+        generateValue: true
+      - key: ENABLE_AUTH
+        value: true
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: FORGE_AGENT_PATH
+        value: ../forge-agent-main
